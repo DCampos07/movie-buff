@@ -53,7 +53,7 @@
 <img src= "" alt= "image description">
 <img src= "" alt="image description" >
 <h4> Mobile </h4>
-<img width="200" height="350" src= "./assets/350x200-image.png">
+<img width="200" height="350" src= "../assets/350x200-image.png">
 <img width="200" height="350" src= "">
 <img width="200" height="350" src= "">
 <img width="200" height="350" src= "">
