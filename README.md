@@ -1,7 +1,7 @@
 <img align="left" src= "https://img.shields.io/badge/License-MIT-green">
-<h1 align= "center">Stickler's Paradise</h1> 
+<h1 align= "center">Movie Buff</h1> 
 <h2>Live Link</h2>
-<h3><a href= "">Live Link</a></h3>  
+<h3><a href= "Live Link goes here">Live Link</a></h3>  
 <h2> Table of Contents </h2>
 <li><a href="#description">Description</a></li>  
 <li><a href="#installation">Installation</a></li> 
