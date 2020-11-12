@@ -4,23 +4,22 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest",
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DCampos07/movie-buff.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DCampos07/movie-buff/issues"
-  },
+  "author": "Damaris Campos, Victoria Landron, Ron Gould",
+  "license": "MIT",
   "homepage": "https://github.com/DCampos07/movie-buff#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jest": "^26.6.3",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   }
