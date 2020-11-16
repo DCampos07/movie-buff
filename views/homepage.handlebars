@@ -1,10 +1,14 @@
- <div>You are on the homepage</div>
-
+{{#each movies}}
  <div>
-     <img src="{{movies.poster}}">
-     <h2>{{movies.title}}</h2>
+     <img src="{{poster}}">
+     {{!-- make the h2 an a tag with an href --}}
+     <h2 class="movie-title">{{title}}</h2>
+     {{!-- <a href="/movie" class="movie-title">{{title}}</a> --}}
  </div>
+ {{/each}}
+
+ <div id="example"></div>
 
  {{!-- <button id="movies">Click to See the Movies</button> --}}
 
- {{!-- <script src="/javascript/movies.js"></script> --}}
+<script src="/javascript/movies.js"></script>
