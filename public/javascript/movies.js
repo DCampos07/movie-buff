@@ -7,6 +7,8 @@ async function getMovies() {
         }),
         headers: { 'Content-Type': 'application/json' }
     })
+
+    console.log(response)
         //check response status
         if (response.ok) {
             console.log('success');
@@ -15,3 +17,5 @@ async function getMovies() {
             alert(response.statusText);
         }
 }
+
+document.querySelector('#movies').addEventListener('click', getMovies);
