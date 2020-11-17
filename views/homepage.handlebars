@@ -1,13 +1,52 @@
-{{#each movies}}
+{{!-- {{#each movies}}
  <div>
      <img src="{{poster}}">
      {{!-- make the h2 an a tag with an href --}}
      <h2 class="movie-title">{{title}}</h2>
      {{!-- <a href="/movie" class="movie-title">{{title}}</a> --}}
- </div>
- {{/each}}
+ {{!-- </div> --}}
 
- <div id="example"></div>
+
+{{!-- <div class = "columns is-multiline"></div> --}}
+<div class = "columns is-mobile">
+
+
+{{#each movies}}
+
+<div class = "column is-12-mobile is-6-tablet is-3-desktop">
+
+ <div class = "card">
+  <div class="card-image">
+    <figure class="image is-3by4">
+      <img src="{{poster}}">
+      </figure>
+  </div>
+  <div class="card-content">
+      <div class="content">
+        <p>
+        <span class="title is-4 is-capitalized">
+           <a href="">{{title}}</a>
+            </span>
+        </p>    
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
+  </div>
+  </div>
+
+
+{{/each}}
+
+
+</div>
 
  {{!-- <button id="movies">Click to See the Movies</button> --}}
 
