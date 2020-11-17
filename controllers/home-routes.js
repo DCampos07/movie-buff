@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   // console.log(response3.data.Title);
   const movies = [];
 
-  const titles = ["Toy Story", "Titanic", "Frozen"];
+  const titles = ["Toy Story", "A Bug's Life", "Toy Story 2", "Monsters, Inc.", "Finding Nemo", "The Incredibles", "Cars", "Ratatouille", "WALL-E", "Up", "Toy Story 3", "Cars 2", "Brave", "Monsters University", "Inside Out", "The Good Dinosaur", "Finding Dory", "Cars 3", "Coco", "Incredibles 2", "Toy Story 4", "Onward"];
   for (let i = 0; i < titles.length; i++) {
     const response = await axios.get(
       `https://www.omdbapi.com/?t=${titles[i]}&apikey=d69ff318`
