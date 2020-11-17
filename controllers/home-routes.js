@@ -22,6 +22,9 @@ router.get("/", async (req, res) => {
     const movie = {
       title: response.data.Title,
       poster: response.data.Poster,
+      plot: response.data.Plot,
+      actors: response.data.Actors,
+      runtime: response.data.Runtime
     };
 
     movies.push(movie);
