@@ -9,7 +9,17 @@
 
 
 {{#if loggedIn}}
-<article class="media">
+<form class="comment-form">
+  <div>
+    <textarea class="ml-5" name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
+  </div>
+  
+</form>
+{{!-- <article class="media">
   <figure class="media-left">
     <p class="image is-64x64">
       <img src="https://bulma.io/images/placeholders/128x128.png">
@@ -31,8 +41,10 @@
       </div>
     </nav>
   </div>
-</article>
+</article> --}}
 {{/if}}
+
+{{!-- {{> comments post.comments}} --}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
