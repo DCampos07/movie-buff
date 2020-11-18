@@ -18,8 +18,10 @@ router.get("/", async (req, res) => {
     const response = await axios.get(
       `https://www.omdbapi.com/?t=${titles[i]}&apikey=d69ff318`
     );
-    console.log(response.data.Title);
+    // console.log(response.data.Title);
+    // console.log(response)
     const movie = {
+      id: response.data.imdbID,
       title: response.data.Title,
       poster: response.data.Poster,
       plot: response.data.Plot,
@@ -50,18 +52,23 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/movie", async (req, res) => {
-  console.log(req.query);
+  // console.log(req.query);
   const title = req.query.title;
   const response = await axios.get(
     "https://www.omdbapi.com/?t=" + title + "&apikey=d69ff318"
   );
   const movie = {
+    id: response.data.imdbID,
     title: response.data.Title,
     poster: response.data.Poster,
     plot: response.data.Plot,
     runtime: response.data.Runtime,
   };
-  res.render("movie", { movie: movie });
+  res.render("movie", { 
+    loggedIn: req.session.loggedIn,
+    userId: req.session.user_id,
+    movie: movie 
+  });
 });
 
 module.exports = router;

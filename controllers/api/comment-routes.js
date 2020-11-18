@@ -13,10 +13,11 @@ router.get('/', (req, res) => {
 
 // Create Comment
 router.post('/', (req, res) => {
+  // console.log(req.session.user_id);
   Comment.create({
     comment_text: req.body.comment_text,
-    user_id: req.body.user_id,
-    post_id: req.body.post_id
+    user_id: req.session.user_id,
+    movieId: req.body.movieId,
   })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
