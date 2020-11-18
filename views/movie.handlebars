@@ -4,7 +4,9 @@
     <h1>{{movie.title}}</h1>
     <p>{{movie.plot}}</p>
     <p>{{movie.runtime}}</p>
+</span>
 </div>
+
 
 {{#if loggedIn}}
 <article class="media">
@@ -19,6 +21,8 @@
         <textarea name="comment-body" class="textarea" placeholder="Add a comment..." ></textarea>
       </p>
     </div>
+     <span class="rating">
+    <span class="star">★</span>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
@@ -32,4 +36,5 @@
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
+<script src="/javascript/rating.js"></script>
 {{/if}}
