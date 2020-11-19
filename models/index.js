@@ -52,10 +52,10 @@ Comment.belongsTo(User, {
   onDelete: 'SET NULL'
 });
 
-Comment.belongsTo(Movie, {
-  foreignKey: 'movie_title',
-  onDelete: 'SET NULL'
-});
+// Comment.belongsTo(Movie, {
+//   foreignKey: 'movie_title',
+//   onDelete: 'SET NULL'
+// });
 
 User.hasMany(Comment, {
   foreignKey: 'user_id',

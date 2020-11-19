@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { response } = require('express');
-const { Comment } = require('../../models');
+const sequelize = require('../../config/connection');
+const { Comment, User } = require('../../models');
 
 //Find Comments
 router.get('/', (req, res) => {
@@ -15,10 +16,25 @@ router.get('/', (req, res) => {
 router.get('/:movie_title', (req, res) =>{
   Comment.findAll({
     where: {
-      movie_title = movie_title
-    }
+      movie_title: req.params.movie_title
+    },
+    attributes: [
+      'id',
+      'comment_text',
+      //movie_tile -from commentes table select * from comments where movie-title = "movieTitle"
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE comment.movie_title = movie_title)'), 'movie_title']
+      // [sequelize.literal('(SELECT COUNT(*) FROM rate WHERE post.id = movie.post_id)'), 'rate_count']
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
   .then(response => {
+    res.json(response);
     console.log(response);
   })
 

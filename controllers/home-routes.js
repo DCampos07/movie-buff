@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const axios = require("axios");
+const fetch = require("isomorphic-fetch");
 const { Post, User, Comment } = require("../models");
 
 router.get("/", async (req, res) => {
@@ -13,7 +14,30 @@ router.get("/", async (req, res) => {
   // console.log(response3.data.Title);
   const movies = [];
 
-  const titles = ["Toy Story", "A Bug's Life", "Toy Story 2", "Monsters, Inc.", "Finding Nemo", "The Incredibles", "Cars", "Ratatouille", "WALL-E", "Up", "Toy Story 3", "Cars 2", "Brave", "Monsters University", "Inside Out", "The Good Dinosaur", "Finding Dory", "Cars 3", "Coco", "Incredibles 2", "Toy Story 4", "Onward"];
+  const titles = [
+    "Toy Story",
+    "A Bug's Life",
+    "Toy Story 2",
+    "Monsters, Inc.",
+    "Finding Nemo",
+    "The Incredibles",
+    "Cars",
+    "Ratatouille",
+    "WALL-E",
+    "Up",
+    "Toy Story 3",
+    "Cars 2",
+    "Brave",
+    "Monsters University",
+    "Inside Out",
+    "The Good Dinosaur",
+    "Finding Dory",
+    "Cars 3",
+    "Coco",
+    "Incredibles 2",
+    "Toy Story 4",
+    "Onward",
+  ];
   for (let i = 0; i < titles.length; i++) {
     const response = await axios.get(
       `https://www.omdbapi.com/?t=${titles[i]}&apikey=d69ff318`
@@ -26,11 +50,10 @@ router.get("/", async (req, res) => {
       poster: response.data.Poster,
       plot: response.data.Plot,
       actors: response.data.Actors,
-      runtime: response.data.Runtime
-
+      runtime: response.data.Runtime,
     };
 
-      movies.push(movie);
+    movies.push(movie);
   }
   console.log(movies);
 
@@ -54,6 +77,21 @@ router.get("/signup", (req, res) => {
 
 router.get("/movie", async (req, res) => {
   // console.log(req.query);
+  const comments = await fetch("/api/comments/:movie_title", {
+    method: "get",
+    body: JSON.stringify({
+      id,
+      comment_text,
+      user_id,
+      movie_title,
+      created_at,
+    }),
+    headers: { "Content-Type": "application/json" },
+  }).catch(function (error) {
+    // handle error
+    console.log(error);
+  });
+
   const title = req.query.title;
   const response = await axios.get(
     "https://www.omdbapi.com/?t=" + title + "&apikey=d69ff318"
@@ -64,16 +102,14 @@ router.get("/movie", async (req, res) => {
     poster: response.data.Poster,
     plot: response.data.Plot,
     runtime: response.data.Runtime,
-    comments: fetch(api)
-    
-    // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
+    comments: comments,
   };
-   // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
-   // movie.comments = fetch/api/comments/<movie_title) GET //movie.comments = movie.title
-  res.render("movie", { 
+  // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
+  // movie.comments = fetch/api/comments/<movie_title) GET //movie.comments = movie.title
+  res.render("movie", {
     loggedIn: req.session.loggedIn,
     userId: req.session.user_id,
-    movie: movie 
+    movie: movie,
   });
 });
 

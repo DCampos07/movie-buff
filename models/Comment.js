@@ -27,7 +27,7 @@ Comment.init(
     },
     movie_title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     }
   },
   {
