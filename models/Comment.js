@@ -25,7 +25,7 @@ Comment.init(
         key: "id"
       }
     },
-    movieId: {
+    movie_title: {
       type: DataTypes.STRING,
       allowNull: false,
     }

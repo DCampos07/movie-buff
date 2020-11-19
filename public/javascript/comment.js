@@ -1,10 +1,13 @@
-// console.log(userId);
-// const movieId = document.querySelector('.movie-id').textContent
+// const movie_id = document.querySelector('.movie-id').textContent;
+// const post_id = window.location.toString().split('/')[
+//   window.location.toString().split('/').length -1
+// ];
+// commentFormHandler(movie_id);
 
-async function commentFormHandler(movieId) {
+async function commentFormHandler(movie_title) {
     // event.preventDefault();
-  
     const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
+    
   
     //  const movie_title = window.location.toString().split('/')[
     //     window.location.toString().split('/').length - 1
@@ -14,8 +17,8 @@ async function commentFormHandler(movieId) {
         const response = await fetch('/api/comments', {
           method: 'POST',
           body: JSON.stringify({
-            comment_text,
-            movieId
+            comment_text: comment_text,
+            movie_title: movie_title
           }),
           headers: {
             'Content-Type': 'application/json'

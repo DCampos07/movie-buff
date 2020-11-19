@@ -52,8 +52,8 @@ Comment.belongsTo(User, {
   onDelete: 'SET NULL'
 });
 
-Comment.belongsTo(Post, {
-  foreignKey: 'post_id',
+Comment.belongsTo(Movie, {
+  foreignKey: 'movie_title',
   onDelete: 'SET NULL'
 });
 

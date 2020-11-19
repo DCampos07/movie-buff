@@ -10,8 +10,9 @@ router.get('/', (req, res) => {
       'id',
       'post_url',
       'title',
+      //movie_tile -from commentes table select * from comments where movie-title = "movieTitle"
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM rate WHERE post.id = rate.post_id)'), 'rate_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM rate WHERE post.id = movie.post_id)'), 'rate_count']
     ],
     include: [
       {
@@ -45,7 +46,7 @@ router.get('/:id', (req, res) => {
       'post_url',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM rate WHERE post.id = rate.post_id)'), 'rate_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM rate WHERE post.id = movie.post_id)'), 'rate_count']
     ],
     include: [
       {

@@ -27,9 +27,10 @@ router.get("/", async (req, res) => {
       plot: response.data.Plot,
       actors: response.data.Actors,
       runtime: response.data.Runtime
+
     };
 
-    movies.push(movie);
+      movies.push(movie);
   }
   console.log(movies);
 
@@ -63,7 +64,10 @@ router.get("/movie", async (req, res) => {
     poster: response.data.Poster,
     plot: response.data.Plot,
     runtime: response.data.Runtime,
+    comments: []// fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   };
+   // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
+   // movie.comments = fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   res.render("movie", { 
     loggedIn: req.session.loggedIn,
     userId: req.session.user_id,

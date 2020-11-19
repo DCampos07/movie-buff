@@ -10,6 +10,11 @@ router.get('/', (req, res) => {
                 title: response.data.Title,
                 poster: response.data.Poster
             }
+            ///res.json(movies);
+            return res.json(movies);
+        })
+        .then( response => {
+            //call another GET (comments) passing movies.title.
             res.json(movies);
         })
         .catch(function (error) {

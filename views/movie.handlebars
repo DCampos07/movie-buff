@@ -26,10 +26,11 @@
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <button class="button is-info submit-comment" onclick="commentFormHandler('{{movie.id}}')">Submit</button>
+          <button class="button is-info submit-comment" onclick="commentFormHandler('{{movie.title}}')">Submit</button>
         </div>
       </div>
     </nav>
+    {{> comments movie.comments}}
   </div>
 </article>
 {{/if}}
