@@ -10,9 +10,11 @@
 
 {{#if loggedIn}}
 <form class="comment-form">
-  <div>
-    <textarea class="ml-5" name="comment-body"></textarea>
-  </div>
+  <div class="field">
+      <p class="control">
+        <textarea name="comment-body" class="textarea" placeholder="Add a comment..." ></textarea>
+      </p>
+    </div>
 
   <div>
     <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
@@ -44,7 +46,7 @@
 </article> --}}
 {{/if}}
 
-{{!-- {{> comments post.comments}} --}}
+{{!-- {{> comments movie.comments}} --}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

@@ -1,5 +1,5 @@
 // console.log(userId);
-// const movieId = document.querySelector('.movie-id').textContent
+const movieId = document.querySelector('.movie-id').textContent
 
 async function commentFormHandler(movieId) {
     // event.preventDefault();
@@ -30,4 +30,4 @@ async function commentFormHandler(movieId) {
       }
   }
   
-//   document.querySelector('.submit-comment').addEventListener('click', commentFormHandler);
+// document.querySelector('.submit-comment').addEventListener('click', commentFormHandler);
