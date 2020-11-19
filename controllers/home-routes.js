@@ -76,23 +76,21 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/movie", async (req, res) => {
-  // console.log(req.query);
-  const comments = await fetch("/api/comments/:movie_title", {
+  console.log(req.query);
+  const title = req.query.title;
+
+  const comments = await fetch("/api/comments/" + title, {
     method: "get",
-    body: JSON.stringify({
-      id,
-      comment_text,
-      user_id,
-      movie_title,
-      created_at,
-    }),
     headers: { "Content-Type": "application/json" },
-  }).catch(function (error) {
+  }).then(response => {
+    console.log(response)
+  })
+  .catch(function (error) {
     // handle error
     console.log(error);
   });
 
-  const title = req.query.title;
+ 
   const response = await axios.get(
     "https://www.omdbapi.com/?t=" + title + "&apikey=d69ff318"
   );
@@ -104,6 +102,8 @@ router.get("/movie", async (req, res) => {
     runtime: response.data.Runtime,
     comments: comments,
   };
+
+  console.log(movie);
   // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   // movie.comments = fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   res.render("movie", {
