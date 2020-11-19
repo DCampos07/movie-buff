@@ -76,34 +76,44 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/movie", async (req, res) => {
-  console.log(req.query);
+  // console.log(req.query);
   const title = req.query.title;
 
-  const comments = await fetch("/api/comments/" + title, {
-    method: "get",
-    headers: { "Content-Type": "application/json" },
-  }).then(response => {
-    console.log(response)
+  const comments = await Comment.findAll({
+    where: {
+      movie_title: title
+    },
+    attributes: [
+      'id',
+      'comment_text',
+      //movie_tile -from commentes table select * from comments where movie-title = "movieTitle"
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE comment.movie_title = movie_title)'), 'movie_title']
+      // [sequelize.literal('(SELECT COUNT(*) FROM rate WHERE post.id = movie.post_id)'), 'rate_count']
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  });
+  console.log(comments)
 
- 
-  const response = await axios.get(
-    "https://www.omdbapi.com/?t=" + title + "&apikey=d69ff318"
-  );
-  const movie = {
-    id: response.data.imdbID,
-    title: response.data.Title,
-    poster: response.data.Poster,
-    plot: response.data.Plot,
-    runtime: response.data.Runtime,
-    comments: comments,
-  };
-
-  console.log(movie);
+    const response = await axios.get(
+      "https://www.omdbapi.com/?t=" + title + "&apikey=d69ff318"
+    );
+    const movie = {
+      id: response.data.imdbID,
+      title: response.data.Title,
+      poster: response.data.Poster,
+      plot: response.data.Plot,
+      runtime: response.data.Runtime,
+      comments: comments,
+    };
+  
+    console.log(movie);
+  
   // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   // movie.comments = fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   res.render("movie", {
