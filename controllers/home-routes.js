@@ -75,6 +75,10 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/search", (req, res) => {
+  res.render("search");
+});
+
 router.get("/movie", async (req, res) => {
   // console.log(req.query);
   const title = req.query.title;
