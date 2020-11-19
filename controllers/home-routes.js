@@ -64,7 +64,9 @@ router.get("/movie", async (req, res) => {
     poster: response.data.Poster,
     plot: response.data.Plot,
     runtime: response.data.Runtime,
-    comments: []// fetch/api/comments/<movie_title) GET //movie.comments = movie.title
+    comments: fetch(api)
+    
+    // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
   };
    // fetch/api/comments/<movie_title) GET //movie.comments = movie.title
    // movie.comments = fetch/api/comments/<movie_title) GET //movie.comments = movie.title
