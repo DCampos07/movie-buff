@@ -167,3 +167,9 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .single-movie {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }

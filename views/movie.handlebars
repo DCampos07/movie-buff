@@ -1,13 +1,18 @@
-<div>
+<div class="card column is-12-mobile is-6-tablet is-6-desktop">
     {{!-- <p class="movie-id">{{movie.id}}</p> --}}
-    
-    <img src="{{movie.poster}}">
-    
-    <h1 class="title is-1">{{movie.title}}</h1>
-    <p>{{movie.plot}}</p>
-    <p>Runtime: + {{movie.runtime}}</p>
-    </span>
-    
+   <div class="card-content">
+    <div class="card-image">
+        <img src="{{movie.poster}}">
+    </div>
+
+    <div class="content">
+        <h1 class="title is-1">{{movie.title}}</h1>
+        <p>{{movie.plot}}</p>
+        <p>Runtime: + {{movie.runtime}}</p>
+        </span>
+    </div>
+    </div>
+
 </div>
 
 
@@ -22,18 +27,18 @@
         </div>
         {{!-- <span class="rating">
             <span class="star">★</span> --}}
-            <nav class="level">
-                <div class="level-left">
-                    <div class="level-item">
-                        <button class="button is-info submit-comment"
-                            onclick="commentFormHandler('{{movie.title}}')">Submit</button>
-                    </div>
+        <nav class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <button class="button is-info submit-comment"
+                        onclick="commentFormHandler('{{movie.title}}')">Submit</button>
                 </div>
-            </nav>
+            </div>
+        </nav>
     </div>
-</article>    
-    
-    
+</article>
+
+
 
 
 {{/if}}
