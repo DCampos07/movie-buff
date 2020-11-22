@@ -1,0 +1,14 @@
+<div class="comments">
+  {{#each comment}}
+    <div class="comment">
+        <div class="card-body">
+            <div class="text">
+                {{dataValues.comment_text}}
+            </div>
+            <div class="meta">
+                -{{this.user.dataValues.username}}, {{format_date this.dataValues.created_at}}
+            </div>
+        </div>
+    </div>
+  {{/each}}
+</div>
