@@ -52,6 +52,7 @@ Comment.belongsTo(User, {
   onDelete: 'SET NULL'
 });
 
+
 // Comment.belongsTo(Movie, {
 //   foreignKey: 'movie_title',
 //   onDelete: 'SET NULL'
