@@ -100,6 +100,7 @@ const postdata = [
   title: 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.',
   post_url: 'https://java.com/at/nibh/in.png',
   user_id: 7
+
   }
 ];
 

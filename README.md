@@ -1,13 +1,14 @@
+
 <img align="left" src= "https://img.shields.io/badge/License-MIT-green">
-<h1 align= "center">Movie Buff</h1> 
+<h1 align= "center">Movie Buff</h1>
 <h2>Live Link</h2>
 <h3><a href= "Live Link goes here">Live Link</a></h3>  
 <h2> Table of Contents </h2>
 <li><a href="#description">Description</a></li>  
-<li><a href="#installation">Installation</a></li> 
-<li><a href="#tech">Technology Stack</a></li> 
-<li><a href="#usage">Usage</a></li> 
-<li><a href="#screen">ScreenShots</a></li> 
+<li><a href="#installation">Installation</a></li>
+<li><a href="#tech">Technology Stack</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#screen">ScreenShots</a></li>
 <li><a href="#contributors">Contributors/ Contact</a></li>
 <li><a href="#test">Test</a></li>
 
@@ -44,7 +45,7 @@
 <li>Git</li>
 </ul>          
 <h2 id="usage"> Usage </h2>
-<p>A safe and comformfortable place where users can rate and give their oppinions on they're favorite Pixar Movies</p> 
+<p>A safe and comformfortable place where users can rate and give their oppinions on they're favorite Pixar Movies</p>
 <h2 id="screen"> ScreenShots </h2>
 <h4> Desktop </h4>
 <img src= "" alt="image description" >
